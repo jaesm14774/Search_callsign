@@ -467,7 +467,12 @@ Search_fun=function(dat){
         P=which(D_havenot[,1] %in% c(past_nonavaiable,can_not))
         D_havenot[P,2:3]=NA
         have_not=have_not[-P]
-      }else print('No need to update nonavaiable key')
+      }else{
+        print('No need to update nonavaiable key')
+        P=which(D_havenot[,1] %in% past_nonavaiable)
+        D_havenot[P,2:3]=NA
+        have_not=have_not[-P]
+      }
     }else{
       P=which(D_havenot[,1] %in% past_nonavaiable)
       D_havenot[P,2:3]=NA
@@ -553,4 +558,3 @@ Search_fun=function(dat){
     } 
   }
 }
-
